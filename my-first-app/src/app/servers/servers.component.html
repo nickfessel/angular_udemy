@@ -33,9 +33,11 @@ class="btn btn-primary" [disabled]="!allowNewServer">Add Server</button>
 <p *ngIf="serverCreated">Server was created, server name is {{ serverName }}</p>
 
 
+<app-server *ngFor="let server of servers"></app-server>
 
-<app-server></app-server><br />
-<app-server></app-server>
+
+<!-- <app-server></app-server><br />
+<app-server></app-server> -->
 
 <label>UserName</label>
 <input 
@@ -48,3 +50,7 @@ class="form-control"
 (click)="resetUserName()">
  Reset User
 </button>
+
+<br /><br />
+<button class="btn btn-primary" (click) = 'toggleVisibility()'>Display Details</button>
+<p [ngStyle]="{visibility: secretMessageVisibility === true ? 'visible' : 'hidden'}">Secret Password=tuna</p>
