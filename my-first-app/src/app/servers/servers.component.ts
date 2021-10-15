@@ -21,6 +21,7 @@ export class ServersComponent implements OnInit {
   serverCreated = false;
   servers = ['Testserver', 'Testserver 2'];
   secretMessageVisibility = false;
+  buttonClicks = [];
   constructor() { 
     setTimeout(() => {this.allowNewServer = true;},2000);
 
@@ -46,6 +47,7 @@ export class ServersComponent implements OnInit {
 
   toggleVisibility() {
     this.secretMessageVisibility = !this.secretMessageVisibility;    
+    this.buttonClicks.push(new Date());
     return this.secretMessageVisibility === true ? 'visible' : 'hidden';
   }
 }
