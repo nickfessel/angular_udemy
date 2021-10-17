@@ -1,0 +1,9 @@
+<div class="panel panel-default">
+    <!-- <div class="panel-heading">{{ element.name }}</div> -->
+    <div class="panel-heading" #heading>{{ name }}</div>
+    <div class="panel-body">
+        <!-- slot for content between opening and closing tag  of server-element markup -->
+        <!-- ng-content is like Vue's <slot> syntax -->
+        <ng-content></ng-content>
+    </div>
+</div>
