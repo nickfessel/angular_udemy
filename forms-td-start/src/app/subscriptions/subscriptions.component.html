@@ -1,0 +1,69 @@
+<div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+        <form (ngSubmit)="onSubmit()" #f="ngForm">
+          <div id="user-data">
+            <div class="form-group">
+              <label for="email">Mail</label>
+              <input 
+              type="email" 
+              id="email" 
+              class="form-control"
+              ngModel
+              name="email"
+              required
+              email
+              #email="ngModel"
+              >
+              <span class="help-block" *ngIf="!email.valid && email.touched">Please enter a valid email!</span>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="secret">Subscription</label>
+            <select 
+            id="subscription" 
+            class="form-control"
+            [ngModel]="defaultQuestion"
+            name="subscription"
+            >
+            <option *ngFor="let subscription of subscriptions"
+            [value]="subscription">{{subscription}}</option>
+              <!-- <option value="Basic">Basic</option>
+              <option value="Advanced">Advanced</option>
+              <option value="Pro">Pro</option> -->
+            </select>
+          </div>
+         
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input 
+            type="password" 
+            id="password" 
+            class="form-control"
+            ngModel
+            name="password"
+            required            
+            #password="ngModel"
+            >
+            <span class="help-block" *ngIf="!password.valid && password.touched">Please enter a password!</span>
+          </div>
+
+          <button class="btn btn-primary" type="submit"
+          [disabled]="!f.valid">Submit</button>
+          <p *ngIf="!f.valid && f.touched">Form is invalid!</p>
+     
+        </form>
+      </div>
+    </div>
+    <hr>
+    <div class="row" *ngIf="submitted">
+    <div class="col-xs-12">
+      <h3>Your Data</h3>
+      <p>Mail: {{user.mail}}</p>
+      <p>Subscription Type: {{user.subscription}} </p>
+      <p>Password: {{user.password}}</p>
+    </div>
+    </div> 
+  </div>
+  
