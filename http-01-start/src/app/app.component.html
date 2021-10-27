@@ -59,8 +59,9 @@
         </li>    
       </ul>
       <div class="spinner" *ngIf="isFetching && !error"></div>
-      <div class="alert alert-danger">
+      <div class="alert alert-danger" *ngIf="error">
         <strong>Error!</strong> {{ error }}
+        <button class="btn btn-danger" (click)="onHandleError()">Ok</button>
       </div>
     </div>
   </div>
